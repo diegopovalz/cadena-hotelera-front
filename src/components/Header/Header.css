@@ -1,0 +1,39 @@
+.app-header {
+  display: flex;
+  flex-direction: row;
+  padding: 15px 70px 15px 70px;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+}
+
+.app-header__main {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.app-header__links {
+  margin-left: 30px;
+  display: flex;
+  gap: 5px;
+}
+
+.app-name span {
+  font-weight: bold;
+}
+
+.login-span,
+.logout-span {
+  font-weight: bold;
+}
+
+.login-span:hover,
+.logout-span:hover {
+  cursor: pointer;
+}

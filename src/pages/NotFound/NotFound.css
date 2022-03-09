@@ -1,0 +1,18 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.go-back-button {
+  margin-top: 15px;
+  width: 200px;
+  color: white;
+  background-color: black;
+  height: 35px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}

@@ -1,0 +1,31 @@
+table {
+  border-collapse: collapse;
+  width: 600px;
+  min-width: 300px;
+  text-align: center;
+  line-height: 2.5;
+}
+
+thead {
+  background-color: black;
+  color: white;
+}
+
+tbody {
+  background-color: white;
+  color: black;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+
+tbody tr:hover {
+  background-color: gray;
+}
+
+table,
+tr,
+td {
+  border: 1px solid black;
+}

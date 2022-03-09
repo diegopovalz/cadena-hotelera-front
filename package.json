@@ -50,16 +50,7 @@
     ],
     "rules": {
       "linebreak-style": 0,
-      "comma-dangle": [
-        "error",
-        {
-          "arrays": "never",
-          "objects": "always",
-          "imports": "never",
-          "exports": "never",
-          "functions": "never"
-        }
-      ],
+      "comma-dangle": 0,
       "react/prop-types": 0,
       "react/react-in-jsx-scope": "off",
       "react/jsx-filename-extension": [
@@ -72,8 +63,24 @@
         }
       ],
       "react/jsx-one-expression-per-line": "off",
+      "react/jsx-no-constructed-context-values": "off",
       "import/no-unresolved": "off",
-      "import/extensions": "off"
+      "import/extensions": "off",
+      "jsx-a11y/no-static-element-interactions": "off",
+      "jsx-a11y/click-events-have-key-events": "off",
+      "object-curly-newline": "off",
+      "implicit-arrow-linebreak": "off",
+      "function-paren-newline": "off",
+      "import/prefer-default-export": "off",
+      "operator-linebreak": "off",
+      "no-unused-vars": [
+        "warn",
+        {
+          "argsIgnorePattern": "^_",
+          "varsIgnorePattern": "^_",
+          "caughtErrorsIgnorePattern": "^_"
+        }
+      ]
     },
     "ignorePatterns": [
       "vite.config.js"

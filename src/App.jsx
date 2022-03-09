@@ -1,45 +1,24 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { Outlet } from 'react-router-dom';
+import { useState } from 'react';
+import UserContext from './context/UserContext';
+import LocationContext from './context/LocationContext';
+import Header from './components/Header';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState(null);
+  const [location, setLocation] = useState('');
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
-  )
+    <UserContext.Provider value={{ user, setUser }}>
+      <LocationContext.Provider value={{ location, setLocation }}>
+        <Header />
+        <div className="app">
+          <Outlet />
+        </div>
+      </LocationContext.Provider>
+    </UserContext.Provider>
+  );
 }
 
-export default App
+export default App;
