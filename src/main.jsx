@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound';
 import HotelSearch from './pages/HotelSearch';
 import MyReservations from './pages/MyReservations';
 import ReservationDetail from './pages/ReservationDetail';
+import Login from './pages/Login';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
           <Route path="/" element={<App />}>
             <Route index element={<HotelSearch />} />
             <Route path="/hotel/:id" />
+            <Route path="/login" element={<Login />} />
             <Route path="/reservations" element={<MyReservations />} />
             <Route path="/reservations/:id" element={<ReservationDetail />} />
             <Route path="*" element={<NotFound />} />

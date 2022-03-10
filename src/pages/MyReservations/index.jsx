@@ -1,17 +1,21 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthRequiredComponent from '../../components/AuthRequiredComponent';
 import ReservationTable from '../../components/ReservationTable';
 import ReservationTableRow from '../../components/ReservationTableRow';
+import UserContext from '../../context/UserContext';
 import ReservationService from '../../services/ReservationService';
 
 export default function MyReservations() {
   const [reservations, setReservations] = useState([]);
+  const { user } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getReservations = () => {
-      const results = ReservationService.getReservations();
+    const getReservations = async () => {
+      const results = await ReservationService.getReservations(
+        user.clientInfo.id
+      );
       setReservations(results);
     };
     getReservations();
@@ -26,16 +30,21 @@ export default function MyReservations() {
       <div>
         {reservations.length > 0 && (
           <ReservationTable>
-            {reservations.map(({ id, hotelName, place, dateReserved }) => (
-              <Fragment key={id}>
-                <ReservationTableRow
-                  hotelName={hotelName}
-                  location={place}
-                  dateReserved={dateReserved}
-                  onClick={() => onItemClick(id)}
-                />
-              </Fragment>
-            ))}
+            {reservations.map(
+              ({
+                reservation: { id, dateReserved },
+                hotelInfo: { hotelName, place },
+              }) => (
+                <Fragment key={id}>
+                  <ReservationTableRow
+                    hotelName={hotelName}
+                    location={place}
+                    dateReserved={dateReserved}
+                    onClick={() => onItemClick(id)}
+                  />
+                </Fragment>
+              )
+            )}
           </ReservationTable>
         )}
       </div>

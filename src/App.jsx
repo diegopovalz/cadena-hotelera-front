@@ -1,9 +1,18 @@
 import { Outlet } from 'react-router-dom';
 import { useState } from 'react';
+import { transitions, positions, Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
 import UserContext from './context/UserContext';
 import LocationContext from './context/LocationContext';
 import Header from './components/Header';
 import './App.css';
+
+const options = {
+  position: positions.TOP_RIGHT,
+  timeout: 2000,
+  offset: '30px',
+  transition: transitions.FADE,
+};
 
 function App() {
   const [user, setUser] = useState(null);
@@ -13,9 +22,11 @@ function App() {
     <UserContext.Provider value={{ user, setUser }}>
       <LocationContext.Provider value={{ location, setLocation }}>
         <Header />
-        <div className="app">
-          <Outlet />
-        </div>
+        <AlertProvider template={AlertTemplate} {...options}>
+          <div className="app">
+            <Outlet />
+          </div>
+        </AlertProvider>
       </LocationContext.Provider>
     </UserContext.Provider>
   );

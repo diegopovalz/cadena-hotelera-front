@@ -10,9 +10,9 @@ export default function ReservationDetail() {
   const params = useParams();
 
   useEffect(() => {
-    const getResult = () => {
+    const getResult = async () => {
       const { id } = params;
-      const result = ReservationService.getReservationById(id);
+      const result = await ReservationService.getReservationById(id);
       setReservation(result);
     };
 
@@ -26,18 +26,19 @@ export default function ReservationDetail() {
           <div>
             <img
               className="reservation__img"
-              src={reservation.roomImgUrl}
+              src={reservation.hotelInfo.roomImgUrl}
               alt="Room"
             />
           </div>
           <div className="reservation__info">
             <div className="reservation__info-title">
-              <h3>{reservation.hotelName}</h3>
-              <h4>Ubicación: {reservation.place}</h4>
+              <h3>{reservation.hotelInfo.hotelName}</h3>
+              <h4>Ubicación: {reservation.hotelInfo.place}</h4>
             </div>
             <div className="reservation__info-date">
               <p>
-                Fecha reservado: <span>{reservation.dateReserved}</span>
+                Fecha reservado:{' '}
+                <span>{reservation.reservation.dateReserved}</span>
               </p>
             </div>
           </div>

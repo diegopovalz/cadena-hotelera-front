@@ -13,7 +13,7 @@ export default function HotelSearch() {
   useEffect(() => {
     const getResults = async () => {
       if (location) {
-        const results = HotelService.getHotelsByName(location);
+        const results = await HotelService.getHotelsByName(location);
         setHotels(results);
       }
     };
@@ -24,7 +24,7 @@ export default function HotelSearch() {
   useEffect(() => {
     const getResults = async () => {
       if (look) {
-        const results = HotelService.getHotelsByName(location);
+        const results = await HotelService.getHotelsByName(location);
         setHotels(results);
       }
     };

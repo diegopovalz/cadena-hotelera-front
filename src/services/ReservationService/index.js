@@ -1,4 +1,6 @@
-const RESERVATIONS = [
+import axios from 'axios';
+
+const _ = [
   {
     id: '1',
     hotelName: 'Lleras Green Hotel',
@@ -37,12 +39,32 @@ const RESERVATIONS = [
   },
 ];
 
-function getReservations() {
-  return RESERVATIONS;
+async function getReservations(clientId) {
+  const response = await axios.post('http://localhost:3001/reservations', {
+    clientId: +clientId,
+  });
+
+  const { data } = response;
+  return data;
 }
 
-function getReservationById(searchId) {
-  return RESERVATIONS.find((reservation) => reservation.id === searchId);
+async function getReservationById(id) {
+  const response = await axios.get(`http://localhost:3001/reservations/${id}`);
+
+  const { data } = response;
+  return data;
 }
 
-export default { getReservations, getReservationById };
+async function createReservation(reservation) {
+  const response = await axios.post(
+    'http://localhost:3001/reservations/create',
+    {
+      reservation,
+    }
+  );
+
+  const { data } = response;
+  return data;
+}
+
+export default { getReservations, getReservationById, createReservation };

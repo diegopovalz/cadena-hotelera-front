@@ -28,7 +28,7 @@ export default function Header() {
   };
 
   const handleLogin = () => {
-    setUser({ name: 'Diego' });
+    navigate('/login');
   };
 
   return (
@@ -68,7 +68,7 @@ export default function Header() {
       <div>
         {user !== null ? (
           <p>
-            ¡Hola, {user.name}! Haz clic{' '}
+            ¡Hola, {user.loginInfo.username}! Haz clic{' '}
             <span onClick={handleLogout} className="logout-span">
               aquí
             </span>{' '}

@@ -1,4 +1,6 @@
-const HOTELS = [
+import axios from 'axios';
+
+const _ = [
   {
     id: 1,
     hotelName: 'Lleras Green Hotel',
@@ -55,12 +57,20 @@ const HOTELS = [
   },
 ];
 
-function getHotelsByName(location) {
-  return HOTELS.filter(
-    (hotel) =>
-      hotel.place.toLowerCase().includes(location.toLowerCase()) &&
-      hotel.roomsAvailable > 0
-  );
+async function getHotelsByName(location) {
+  const response = await axios.post('http://localhost:3001/hotels', {
+    location,
+  });
+
+  const { hotels } = response.data;
+  return hotels;
 }
 
-export default { getHotelsByName };
+async function getHotelById(id) {
+  const response = await axios.get(`http://localhost:3001/hotels/${id}`);
+
+  const { data } = response;
+  return data;
+}
+
+export default { getHotelsByName, getHotelById };
