@@ -1,4 +1,5 @@
 import axios from 'axios';
+import CONFIG from '../../config';
 
 const _ = [
   {
@@ -40,7 +41,7 @@ const _ = [
 ];
 
 async function getReservations(clientId) {
-  const response = await axios.post('http://localhost:3001/reservations', {
+  const response = await axios.post(`${CONFIG.API_URL}/reservations`, {
     clientId: +clientId,
   });
 
@@ -49,19 +50,16 @@ async function getReservations(clientId) {
 }
 
 async function getReservationById(id) {
-  const response = await axios.get(`http://localhost:3001/reservations/${id}`);
+  const response = await axios.get(`${CONFIG.API_URL}/reservations/${id}`);
 
   const { data } = response;
   return data;
 }
 
 async function createReservation(reservation) {
-  const response = await axios.post(
-    'http://localhost:3001/reservations/create',
-    {
-      reservation,
-    }
-  );
+  const response = await axios.post(`${CONFIG.API_URL}/reservations/create`, {
+    reservation,
+  });
 
   const { data } = response;
   return data;

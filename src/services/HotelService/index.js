@@ -1,4 +1,5 @@
 import axios from 'axios';
+import CONFIG from '../../config';
 
 const _ = [
   {
@@ -58,7 +59,7 @@ const _ = [
 ];
 
 async function getHotelsByName(location) {
-  const response = await axios.post('http://localhost:3001/hotels', {
+  const response = await axios.post(`${CONFIG.API_URL}/hotels`, {
     location,
   });
 
@@ -67,7 +68,7 @@ async function getHotelsByName(location) {
 }
 
 async function getHotelById(id) {
-  const response = await axios.get(`http://localhost:3001/hotels/${id}`);
+  const response = await axios.get(`${CONFIG.API_URL}/hotels/${id}`);
 
   const { data } = response;
   return data;

@@ -1,7 +1,8 @@
 import axios from 'axios';
+import CONFIG from '../../config';
 
 async function verifyLogin(username, password) {
-  const response = await axios.post('http://localhost:3001/login', {
+  const response = await axios.post(`${CONFIG.API_URL}/login`, {
     username,
     password,
   });
