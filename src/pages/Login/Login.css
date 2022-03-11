@@ -8,6 +8,10 @@
   top: -30px;
 }
 
+.login h1 {
+  text-align: center;
+}
+
 .login__inputs {
   display: flex;
   flex-direction: column;
@@ -28,4 +32,18 @@
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 3px;
+}
+
+@media screen and (max-width: 316px) {
+  .login {
+    width: 300px;
+  }
+
+  .login__inputs {
+    width: 300px;
+  }
+
+  .login__input {
+    width: 100%;
+  }
 }
