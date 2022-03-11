@@ -1,10 +1,10 @@
 import { Outlet } from 'react-router-dom';
-import { useState } from 'react';
 import { transitions, positions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 import UserContext from './context/UserContext';
 import LocationContext from './context/LocationContext';
 import Header from './components/Header';
+import { useLocalStorage } from './hooks/useLocalStorage';
 import './App.css';
 
 const options = {
@@ -15,8 +15,8 @@ const options = {
 };
 
 function App() {
-  const [user, setUser] = useState(null);
-  const [location, setLocation] = useState('');
+  const [user, setUser] = useLocalStorage('user', null);
+  const [location, setLocation] = useLocalStorage('location', '');
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

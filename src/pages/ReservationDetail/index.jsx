@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import AuthRequiredComponent from '../../components/AuthRequiredComponent';
 import ReservationService from '../../services/ReservationService';
@@ -22,6 +23,9 @@ export default function ReservationDetail() {
   if (reservation) {
     return (
       <AuthRequiredComponent>
+        <Helmet>
+          <title>Reserva - {reservation.hotelInfo.hotelName}</title>
+        </Helmet>
         <div className="reservation">
           <div>
             <img

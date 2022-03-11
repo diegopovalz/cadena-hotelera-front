@@ -1,4 +1,5 @@
 import { Fragment, useContext, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import AuthRequiredComponent from '../../components/AuthRequiredComponent';
 import ReservationTable from '../../components/ReservationTable';
@@ -27,6 +28,9 @@ export default function MyReservations() {
 
   return (
     <AuthRequiredComponent>
+      <Helmet>
+        <title>Mis Reservas</title>
+      </Helmet>
       <div>
         {reservations.length > 0 && (
           <ReservationTable>
