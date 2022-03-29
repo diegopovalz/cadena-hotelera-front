@@ -9,7 +9,7 @@ import './App.css';
 
 const options = {
   position: positions.TOP_RIGHT,
-  timeout: 2000,
+  timeout: 5000,
   offset: '30px',
   transition: transitions.FADE,
 };

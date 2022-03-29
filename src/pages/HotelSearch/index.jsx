@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
-import { Fragment, useEffect, useState, useContext } from 'react';
+import { Fragment, useEffect, useState, useContext, useCallback } from 'react';
+import { useAlert } from 'react-alert';
 import HotelPreview from '../../components/HotelPreview';
 import SearchBar from '../../components/SearchBar';
 import HotelService from '../../services/HotelService';
@@ -9,26 +10,27 @@ export default function HotelSearch() {
   const { location, setLocation } = useContext(LocationContext);
   const [look, setLook] = useState(false);
   const [hotels, setHotels] = useState([]);
+  const alert = useAlert();
+
+  const getResults = useCallback(async () => {
+    if (location) {
+      const results = await HotelService.getHotelsByName(location);
+      if (results.length === 0) {
+        alert.show(
+          <div style={{ textTransform: 'none' }}>
+            Vaya, no hay hoteles con la ubicación que ingresaste
+          </div>
+        );
+      }
+      setHotels(results);
+    }
+  }, [location]);
 
   useEffect(() => {
-    const getResults = async () => {
-      if (location) {
-        const results = await HotelService.getHotelsByName(location);
-        setHotels(results);
-      }
-    };
-
     getResults();
   }, []);
 
   useEffect(() => {
-    const getResults = async () => {
-      if (look) {
-        const results = await HotelService.getHotelsByName(location);
-        setHotels(results);
-      }
-    };
-
     getResults();
   }, [look]);
 
