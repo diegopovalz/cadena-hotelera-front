@@ -1,0 +1,31 @@
+.hotel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.hotel__img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
+.hotel__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.hotel__reserve-button {
+  margin-left: 10px;
+  width: 100px;
+  color: white;
+  background-color: black;
+  height: 35px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}

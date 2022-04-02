@@ -6,9 +6,10 @@ export default function HotelPreview({
   price,
   roomImg,
   roomsAvailable,
+  ...props
 }) {
   return (
-    <div className="hotel-preview">
+    <div className="hotel-preview" {...props}>
       <div>
         <img className="hotel-preview__img" src={roomImg} alt="Room" />
       </div>

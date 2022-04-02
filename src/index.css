@@ -15,3 +15,7 @@ a:active {
   text-decoration: none;
   color: black;
 }
+
+.text-light {
+  font-weight: 400;
+}

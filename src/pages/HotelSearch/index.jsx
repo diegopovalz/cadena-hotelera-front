@@ -1,6 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { Fragment, useEffect, useState, useContext, useCallback } from 'react';
 import { useAlert } from 'react-alert';
+import { useNavigate } from 'react-router-dom';
 import HotelPreview from '../../components/HotelPreview';
 import SearchBar from '../../components/SearchBar';
 import HotelService from '../../services/HotelService';
@@ -11,6 +12,7 @@ export default function HotelSearch() {
   const [look, setLook] = useState(false);
   const [hotels, setHotels] = useState([]);
   const alert = useAlert();
+  const navigate = useNavigate();
 
   const getResults = useCallback(async () => {
     if (location) {
@@ -49,6 +51,10 @@ export default function HotelSearch() {
     setLocation(e.target.value);
   };
 
+  const onHotelClick = (id) => {
+    navigate(`/hotel/${id}`);
+  };
+
   return (
     <>
       <Helmet>
@@ -69,6 +75,7 @@ export default function HotelSearch() {
               location={place}
               roomImg={roomImgUrl}
               roomsAvailable={roomsAvailable}
+              onClick={() => onHotelClick(id)}
             />
           </Fragment>
         )
