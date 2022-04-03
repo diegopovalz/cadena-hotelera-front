@@ -56,9 +56,9 @@ async function getReservationById(id) {
   return data;
 }
 
-async function createReservation(reservation) {
+async function createReservation(info) {
   const response = await axios.post(`${CONFIG.API_URL}/reservations/create`, {
-    reservation,
+    reservation: info,
   });
 
   const { data } = response;

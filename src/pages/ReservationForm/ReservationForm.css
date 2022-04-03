@@ -1,0 +1,36 @@
+.reservation-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.reservation-modal__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reservation-modal label {
+  display: inline-block;
+  width: 200px;
+}
+
+.hotel__reserve-input {
+  width: 200px;
+  padding: 0 0 0 20px;
+  height: 30px;
+}
+
+.hotel__reserve-button {
+  margin-left: 10px;
+  width: 100px;
+  color: white;
+  background-color: black;
+  height: 35px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
