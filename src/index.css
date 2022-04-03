@@ -19,3 +19,7 @@ a:active {
 .text-light {
   font-weight: 400;
 }
+
+.text-bold {
+  font-weight: bold;
+}

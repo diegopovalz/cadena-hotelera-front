@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import InvoiceContext from '../../context/InvoiceContext';
 import ReservationService from '../../services/ReservationService';
 import './ReservationForm.css';
 
-export default function ReservationForm() {
+export default function ReservationForm({ hotel }) {
+  const { setInvoice } = useContext(InvoiceContext);
   const [clientIdType, setClientIdType] = useState('');
   const [clientId, setClientId] = useState('');
   const [reserveForDate, setReserveForDate] = useState('');
@@ -36,6 +38,7 @@ export default function ReservationForm() {
     });
     setButtonText('Reservar');
     setEuttonEnabled(true);
+    setInvoice({ result, hotel });
     navigate(`/invoice/${result.invoice.id}`);
   };
 

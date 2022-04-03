@@ -85,7 +85,7 @@ export default function HotelDetail() {
           style={modalStyles}
           contentLabel="Reservation Modal"
         >
-          <ReservationForm />
+          <ReservationForm hotel={hotel} />
         </Modal>
       </>
     );

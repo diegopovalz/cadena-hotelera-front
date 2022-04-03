@@ -1,0 +1,28 @@
+.invoice-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.invoice-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.invoice-detail h1 {
+  text-align: center;
+}
+
+.invoice-detail__button {
+  margin-left: 10px;
+  width: 200px;
+  color: white;
+  background-color: black;
+  height: 35px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}

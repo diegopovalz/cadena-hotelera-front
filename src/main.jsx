@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
@@ -10,6 +9,8 @@ import MyReservations from './pages/MyReservations';
 import ReservationDetail from './pages/ReservationDetail';
 import Login from './pages/Login';
 import HotelDetail from './pages/HotelDetail';
+import InvoiceDetail from './pages/InvoiceDetail';
+import './index.css';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -22,6 +23,7 @@ ReactDOM.render(
             <Route path="/login" element={<Login />} />
             <Route path="/reservations" element={<MyReservations />} />
             <Route path="/reservations/:id" element={<ReservationDetail />} />
+            <Route path="/invoice/:id" element={<InvoiceDetail />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
